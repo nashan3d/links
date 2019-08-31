@@ -10,7 +10,22 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+use App\Link;
 
-Route::get('/', function () {
+Route::get('/',function(){
+
     return view('welcome');
 });
+
+
+Route::get('/links', 'LinksController@index');
+
+Route::get('/links/create','LinksController@create');
+
+Route::post('/links','LinksController@store');
+
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
